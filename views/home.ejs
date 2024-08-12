@@ -1,0 +1,40 @@
+<%- include("partials/header.ejs") %>
+
+  <div class="row flex-lg-row-reverse align-items-center g-5">
+    <div class="col-10 col-sm-8 col-lg-6">
+      <img
+        src="/images/blog.webp"
+        class="rounded d-block mx-lg-auto img-fluid"
+        alt="Blog"
+        width="800"
+      />
+    </div>
+    <div class="col-lg-6">
+      <h1 class="display-5 fw-bold text-body-emphasis lh-1 mb-3">
+        Welcome to TechTalk
+      </h1>
+      <p class="fs-5">
+        All Things Tech! Our blog is dedicated to providing you with the latest
+        news, insights, and trends in the world of technology. Whether you’re a
+        seasoned developer or just starting out, we’ve got you covered. Our team
+        of experts is passionate about all things tech and is committed to
+        bringing you the most up-to-date information on topics ranging from
+        coding and programming to the latest gadgets and software. So come join us
+        and stay informed about the latest tech news and developments!
+      </p>
+      <div class="d-grid gap-2 d-md-flex justify-content-md-start">
+        <a href="/articles">
+          <button type="button" class="btn btn-primary btn-lg px-4 me-md-2 mb-2">
+            Articles
+          </button>
+        </a>
+        <a href="/compose">
+          <button type="button" class="btn btn-outline-secondary btn-lg px-4 me-md-2">
+            Compose
+          </button>
+        </a>
+      </div>
+    </div>
+  </div>
+
+<%- include("partials/footer.ejs") %>

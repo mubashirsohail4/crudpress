@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="auto">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Blog Web Application</title>
+
+  <!-- Import bootstrap -->
+  <link href="/css/bootstrap.min.css" rel="stylesheet">
+  <script src="/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="/styles/style.css">
+  <link rel="stylesheet" href="/styles/theme.css">
+
+  <!-- Color mode toggler -->
+  <script src="/scripts/color-modes.js"></script>
+
+  <!-- Floating UI library for tooltips -->
+  <script src="/js/floating-ui.core.umd.min.js"></script>
+  <script src="/js/floating-ui.dom.umd.min.js"></script>
+</head>
+
+<header>
+  <nav class="navbar navbar-expand-lg bg-body-tertiary rounded container-sm" aria-label="navbar">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="/">TechTalk</a>
+
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsExample11"
+        aria-controls="navbarsExample11" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse d-lg-flex" id="navbarsExample11">
+        <ul class="navbar-nav col-lg-11 justify-content-lg-center">
+          <li class="nav-item">
+            <a class="nav-link" href="/home">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/articles">Articles</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/compose">Compose</a>
+          </li>
+        </ul>
+        <div class="navbar-nav col-lg-1 justify-content-lg-end">
+          <div class="d-flex justify-content-end">
+            <button type="button" id="themeBtn" class="btn btn-outline-primary rounded-pill" data-bs-toggle="tooltip"
+              data-bs-title="Change Theme">Theme</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+  <script src="/scripts/header.js"></script>
+</header>
+<main>
+  <div class="container px-4 py-5">

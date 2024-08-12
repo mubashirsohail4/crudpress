@@ -1,0 +1,18 @@
+<%- include("partials/header.ejs") %>
+
+  <div class="list-group">
+    <% if(articleTitles.length === 0) { %>
+      <p class="text-center">
+        There are no articles. Write something using <a href="/compose"> Compose</a>.
+      </p>
+    <% } %>
+
+    <% for (let i = 0; i < articleTitles.length; i++)  { %>
+      <a href="articles/<%= i %>" class="list-group-item list-group-item-action list-group-item-light py-3 fs-5">
+        <h3><%= articleTitles[i] %></h3>
+        <p class="fs-6 fw-light articles-list-content"><%= articleContents[i] %></p>
+      </a>
+    <% } %>
+  </div>
+
+<%- include("partials/footer.ejs") %>

@@ -1,0 +1,33 @@
+<%- include("partials/header.ejs") %>
+
+<h1 class="display-5 mb-5">Write your article</h1>
+<form method="POST" <% if(locals.index) {%>
+  action="/publish/<%= index %>?_method=PUT" <% } else { %> action="/publish" <%
+  } %> >
+  <div class="mb-3">
+    <label for="title" class="form-label">Title</label>
+    <input
+      type="text"
+      class="form-control"
+      id="title"
+      name="title"
+      value="<%if(locals.title){%><%=title%><%}%>"
+      required
+    />
+  </div>
+  <div class="mb-3">
+    <label for="content" class="form-label">Content</label>
+    <textarea
+      class="form-control"
+      id="content"
+      name="content"
+      rows="9"
+      required
+    >
+<%if(locals.content){%><%=content%><%}%></textarea
+    >
+  </div>
+  <button class="btn btn-primary btn-lg px-5 y-2" type="submit">Publish</button>
+</form>
+
+<%- include("partials/footer.ejs") %>
