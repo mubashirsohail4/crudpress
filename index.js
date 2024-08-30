@@ -17,7 +17,7 @@ app.use(express.static("public"));
 app.use(bodyParser.urlencoded({ extended: true }));
 
 // Middleware: Path for required css and js
-app.use("/css", express.static("node_modules/bootstrap/dist/css"));
+app.use("/css", express.static("css"));
 app.use("/js", express.static("node_modules/bootstrap/dist/js"));
 app.use("/js", express.static("node_modules/@floating-ui/dom/dist/"));
 app.use("/js", express.static("node_modules/@floating-ui/core/dist"));
