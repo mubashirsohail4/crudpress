@@ -1,25 +1,29 @@
 import express from "express";
 import bodyParser from "body-parser";
 import methodOverride from "method-override";
+import path from "path";
 
 const app = express();
 const port = 3000;
+const __dirname = path.resolve();
+
+app.set("views", path.join(__dirname, "views"));
 app.set("view engine", "ejs");
 
 // Middleware: Method Override to get put, patch and delete request from html
 app.use(methodOverride("_method"));
 
 // Middleware: Path for static files in public folder
-app.use(express.static("public"));
+app.use(express.static(path.join(__dirname, "public")));
 
 // Middleware: bodyParser to get form values form html
 app.use(bodyParser.urlencoded({ extended: true }));
 
 // Middleware: Path for required css and js
-app.use("/css", express.static("css"));
-app.use("/js", express.static("node_modules/bootstrap/dist/js"));
-app.use("/js", express.static("node_modules/@floating-ui/dom/dist/"));
-app.use("/js", express.static("node_modules/@floating-ui/core/dist"));
+app.use("/css", express.static(path.join(__dirname, "css")));
+app.use("/js", express.static(path.join(__dirname, "node_modules/bootstrap/dist/js")));
+app.use("/js", express.static(path.join(__dirname, "node_modules/@floating-ui/dom/dist/")));
+app.use("/js", express.static(path.join(__dirname, "node_modules/@floating-ui/core/dist")));
 
 var articleTitles = [];
 var articleContents = [];
