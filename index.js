@@ -19,12 +19,6 @@ app.use(express.static(path.join(__dirname, "public")));
 // Middleware: bodyParser to get form values form html
 app.use(bodyParser.urlencoded({ extended: true }));
 
-// Middleware: Path for required css and js
-app.use("/css", express.static(path.join(__dirname, "css")));
-app.use("/js", express.static(path.join(__dirname, "node_modules/bootstrap/dist/js")));
-app.use("/js", express.static(path.join(__dirname, "node_modules/@floating-ui/dom/dist/")));
-app.use("/js", express.static(path.join(__dirname, "node_modules/@floating-ui/core/dist")));
-
 var articleTitles = [];
 var articleContents = [];
 

@@ -24,7 +24,7 @@ npm install -g sass
 Compile the scss file into css file using Sass.
 
 ```
-sass ./scss/bs-theme.scss ./css/bs-theme.css
+sass ./scss/bs-theme.scss ./public/css/bs-theme.css
 ```
 
 Now run the project using node
