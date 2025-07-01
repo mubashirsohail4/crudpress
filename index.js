@@ -1,7 +1,6 @@
 import express from "express";
 import bodyParser from "body-parser";
 import methodOverride from "method-override";
-// import fs from 'fs';
 
 const app = express();
 const port = 3000;
@@ -21,9 +20,6 @@ app.use("/css", express.static("css"));
 app.use("/js", express.static("node_modules/bootstrap/dist/js"));
 app.use("/js", express.static("node_modules/@floating-ui/dom/dist/"));
 app.use("/js", express.static("node_modules/@floating-ui/core/dist"));
-
-// Path of articles in storage
-// var articlesPath = './articles'
 
 var articleTitles = [];
 var articleContents = [];
@@ -66,11 +62,6 @@ articleContents.push(
   "Blockchain technology, initially synonymous with cryptocurrencies such as Bitcoin, has evolved far beyond its original application, paving the way for a multitude of innovative solutions across various industries. At its core, blockchain is a decentralized, immutable ledger that records transactions and data in a transparent and secure manner. By distributing data across a network of nodes and employing cryptographic techniques, blockchain ensures transparency, integrity, and trust without the need for intermediaries. While cryptocurrencies remain a prominent use case for blockchain, the technology's potential extends far beyond finance, with applications ranging from supply chain management and healthcare to voting systems and intellectual property rights.\n\nOne of the most promising applications of blockchain technology is in supply chain management, where it offers transparency, traceability, and accountability throughout the entire supply chain. By recording every transaction and movement of goods on a blockchain, companies can track the provenance of products from raw materials to the end consumer, ensuring authenticity and quality control. Additionally, blockchain enables real-time monitoring of inventory levels, reducing inefficiencies, and minimizing the risk of counterfeit goods entering the supply chain. Companies like Walmart and IBM are already leveraging blockchain to improve supply chain transparency and streamline operations.\n\nIn the healthcare industry, blockchain technology holds the potential to revolutionize data management, patient records, and medical research. With blockchain, patient health records can be securely stored and shared among healthcare providers, ensuring privacy and interoperability while reducing administrative overhead. Moreover, blockchain enables the secure sharing of medical research data, accelerating the pace of medical discoveries and facilitating collaboration among researchers worldwide. Projects like Medicalchain and Solve.Care are leveraging blockchain to empower patients, streamline healthcare administration, and improve patient outcomes.\n\nAnother area where blockchain technology is making a significant impact is in digital identity management, where it offers a decentralized, secure, and tamper-proof solution for identity verification. With blockchain-based identity systems, individuals have greater control over their personal data and can selectively share information with trusted parties, reducing the risk of identity theft and fraud. Blockchain identity solutions also have the potential to provide access to essential services for underserved populations, such as refugees and migrants, who may lack traditional forms of identification. Projects like uPort and Civic are developing blockchain-based identity platforms to empower individuals and enhance digital trust.\n\nFurthermore, blockchain technology is transforming the way intellectual property rights are managed, enforced, and monetized. By recording digital assets such as patents, copyrights, and trademarks on a blockchain, creators can prove ownership, track usage, and enforce licensing agreements in a transparent and decentralized manner. Smart contracts, self-executing contracts coded on a blockchain, enable automated royalty payments and ensure that creators are fairly compensated for their work. Projects like IPCHAIN and Ascribe are leveraging blockchain to create decentralized marketplaces for intellectual property rights, empowering creators and innovators to protect and monetize their creations.\n\nIn addition to these applications, blockchain technology has the potential to revolutionize voting systems, digital payments, decentralized finance (DeFi), and the Internet of Things (IoT). Blockchain-based voting systems offer transparency, integrity, and security, eliminating the risk of tampering and fraud while increasing voter participation and trust in democratic processes. Digital payments platforms powered by blockchain enable instant, low-cost transactions across borders, bypassing traditional banking intermediaries and reducing transaction fees. DeFi platforms leverage blockchain to democratize access to financial services such as lending, borrowing, and asset management, enabling individuals to participate in global financial markets without relying on centralized institutions. In the IoT space, blockchain enables secure and tamper-proof data sharing and transactions among connected devices, paving the way for new business models and applications.\n\nDespite its transformative potential, blockchain technology still faces several challenges and barriers to adoption, including scalability, interoperability, regulatory uncertainty, and energy consumption. Scalability remains a significant bottleneck for blockchain networks, with limited transaction throughput and high latency inhibiting widespread adoption for high-volume applications. Interoperability between different blockchain platforms and legacy systems is another challenge, hindering seamless data exchange and integration across networks. Moreover, regulatory uncertainty and lack of clear legal frameworks pose risks for businesses and investors operating in the blockchain space, deterring investment and innovation.\n\nIn conclusion, blockchain technology represents a paradigm shift in the way data is managed, transactions are conducted, and trust is established in digital ecosystems. Beyond cryptocurrency, blockchain's potential applications span diverse industries, from supply chain management and healthcare to digital identity and intellectual property rights. As blockchain continues to mature and overcome its technical and regulatory challenges, it holds the promise of transforming industries, empowering individuals, and creating a more transparent, secure, and inclusive digital economy"
 );
 
-// To read the number of files in articlesPath
-// fs.readdir(articlesPath, (err, files) => {
-//   console.log(files.length);
-// });
-
 // Root directory request
 app.get("/", (req, res) => {
   res.redirect("home");
@@ -96,15 +87,13 @@ app.get("/articles", (req, res) => {
 
 // Publish article request
 app.post("/publish", (req, res) => {
+  if (articleTitles.length >= 29) {
+    articleTitles.splice(29, 1);
+    articleContents.splice(29, 1);
+  }
+
   articleTitles.push(req.body.title);
   articleContents.push(req.body.content);
-
-  // Store the published article in files
-  // fs.writeFile(articlesPath + "/" + req.body.title + ".txt",req.body.content, (err) => {
-  //   if (err) throw err;
-  //   console.log("The file has bees saved");
-  // });
-
   res.render("published.ejs");
 });
 
