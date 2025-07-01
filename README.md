@@ -1,4 +1,4 @@
-# blog-web-app
+# CRUDPress
 
 _A blog website where user can write, edit or delete articles._
 
