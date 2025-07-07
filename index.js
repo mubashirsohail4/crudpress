@@ -2,6 +2,7 @@ import express from "express";
 import bodyParser from "body-parser";
 import methodOverride from "method-override";
 import path from "path";
+import mongoose from 'mongoose';
 
 const app = express();
 const port = 3000;
