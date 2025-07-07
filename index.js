@@ -62,11 +62,6 @@ articleContents.push(
 
 // Root directory request
 app.get("/", (req, res) => {
-  res.redirect("home");
-});
-
-// Home Page request
-app.get("/home", (req, res) => {
   res.render("home.ejs");
 });
 
