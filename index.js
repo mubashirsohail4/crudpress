@@ -5,9 +5,12 @@ import path from "path";
 import mongoose from 'mongoose';
 import dotenv from "dotenv";
 
+dotenv.config();
+
 const app = express();
 const port = 3000;
 const __dirname = path.resolve();
+const mongodbURI = process.env.MONGODB_URI;
 
 app.set("views", path.join(__dirname, "views"));
 app.set("view engine", "ejs");
@@ -63,7 +66,14 @@ articleContents.push(
 );
 
 // Root directory request
-app.get("/", (req, res) => {
+app.get("/", async (req, res) => {
+  try {
+    await mongoose.connect(mongodbURI);
+    console.log("MongoDB connected successfully");
+  } catch (error) {
+    console.log(error);
+  }
+
   res.redirect("home");
 });
 
